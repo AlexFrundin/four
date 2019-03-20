@@ -1,0 +1,17 @@
+{% extends 'base.html'%}
+{% load static %}
+{% load bootstrap4 %}
+
+
+{% block content%}
+<p id="results"></p>
+<form action="" method="POST" id="id_form">
+  {% csrf_token %}
+  {% bootstrap_form data layout='inline' %}
+  <input type="submit" class="btn btn-secondary" value="Подтвердить">
+</form>
+{% endblock %}
+
+{% block extra_script%}
+<script src="{% static 'js/main_ajax.js'%}" charset="utf-8"></script>
+{% endblock%}

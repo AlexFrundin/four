@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Accept
+{% endblock %}
+
+{%block content%}
+  {% for name, value in foo.items %}
+    <p>{{name}} == {{ value|default:'None' }}</p>
+  {% endfor%}
+{%endblock%}

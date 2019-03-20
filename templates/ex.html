@@ -1,0 +1,11 @@
+<form class="" method="post">
+  {%csrf_token%}
+  {% for form in user_form %}
+  {{from.label_tag}}
+  {{form}}
+
+  {%endfor%}
+
+  <button type="submit" name="button">Регистрация</button>
+
+</form>

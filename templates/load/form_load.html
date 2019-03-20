@@ -1,0 +1,12 @@
+{% load bootstrap4 %}
+<div class="container mt-5">
+  <div class="col-6">
+    <form action="" method="POST" enctype="multipart/form-data">
+      {% csrf_token %}
+      {% if form_c %}
+      {% bootstrap_form form_abc layout="inline" %}
+      {% endif %}
+      <input type="submit" class="btn btn-info" value="{{button}}">
+    </form>
+  </div>
+</div>

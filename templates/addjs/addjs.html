@@ -1,0 +1,24 @@
+{% extends 'base.html'%}
+{% load static %}
+
+{% block content %}
+<div class="d-flex justify-content-center align-items-center container ">
+<form action="" method="POST" class="form-group col-md-6">
+  <label for="id_country">Страна</label>
+  <select class="form-control form-control-sm" name="country" id="id_country" required></select>
+  <label for="id_city">Город</label>
+  <select class="form-control form-control-sm" name="city" id="id_city" required></select>
+  <small id="help_city" class="form-text text-muted"></small>
+  <input type="submit" value="Отправить">
+</form>
+</div>
+{% endblock %}
+
+
+{% block extra_script %}
+<script type="text/javascript">
+var data = {{data|safe}}
+var data = new Map(data)
+</script>
+<script src="{% static 'js/main.js'%}" charset="utf-8"></script>
+{% endblock %}

@@ -1,0 +1,43 @@
+
+.header{
+  width: 50px;
+  height: 50px;
+  float: left;
+}
+.red{
+  border: solid 1px;
+}
+.green{
+  border: solid green 1px;
+  background-color: blue;
+}
+.header-no-float{
+  width: 50px;
+  height: 50px;
+  float:right;
+}
+.center{
+
+  width: 100%;
+  float:left;
+  border: solid 1px;
+  overflow: hidden;
+}
+div:hover{
+  background-color: grey;
+  border: solid red 1px;
+  border-radius: 20px;
+}
+
+
+ /* Малые девайсы («ландшафтные телефоны», >= 576px) */
+@media (min-width: 576px) {  }
+
+/* // Средние девайсы («таблетки», >= 768px) */
+@media (min-width: 768px) { }
+
+ /* Большие девайсы (десктопы, >= 992px) */
+@media (min-width: 992px) { }
+
+ /* Экстрабольшие девайсы (большие десктопы, >= 1200px) */
+@media (min-width: 1200px) { }

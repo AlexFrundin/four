@@ -1,0 +1,39 @@
+{%load page_tags %}
+<div class="container">
+  <ul class="pagination">
+    {% if page_obj.number != 1%}
+    <li><a  href="?page=1">&nbspПервая&nbsp</a></li>
+    {% endif %}
+    {% if page_obj.has_previous %}
+      <li>
+  <a  href="?page={{ page_obj.previous_page_number }}">&nbsp_Previous_&nbsp</a>
+      </li>
+    {% endif %}
+
+    {% if page_obj.has_next %}
+      <li><a href="?page={{ page_obj.next_page_number }}">&nbsp_NEXT_&nbsp</a></li>
+    {% endif %}
+    {% if page_obj.number != page_obj.paginator.num_pages %}
+<li><a href="?page={{page_obj.paginator.num_pages}}">&nbspПоследняя&nbsp</a></li>
+    {% endif %}
+</ul>
+
+  <div>
+<ul class="pagination">
+  {% for p in page_obj.paginator.page_range|get_before_page:page_obj.number %}
+    {%if forloop.last%}
+      <li><a href="?page={{ p }}">__{{ p }}__</a></li>
+    {%else%}
+      <li><a href="?page={{ p }}">{{ p }}&laquo;</a></li>
+    {%endif%}
+  {%endfor%}
+
+  <li class="active"><a href="#">&lArr;{{ page_obj.number }}&rArr;</a></li>
+
+  {% for p in page_obj.paginator.page_range|get_after_page:page_obj.number %}
+    <li><a href="?page={{ p }}">{{ p }}&raquo;</a></li>
+  {% endfor %}
+</ul>
+</div>
+</div>
+</div>

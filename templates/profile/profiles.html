@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+
+{% block title %}
+Profiles - {{request.user.username}}
+{% endblock%}
+
+{% block content %}
+ anonymous - {{request.user.is_anonymous}}
+ active - {{request.user.is_active}}
+authenticate - {{request.user.is_authenticated}}
+<br>
+<img src="{{request.user.profile.get_image}}" alt="" width="120" height="120">
+<br>
+<p>{{request.user.profile.get_image}}</p>
+<form action="" method="POST" class="mt-3" enctype="multipart/form-data">
+  {% csrf_token %}
+  {% bootstrap_form user_form layout="inline" %}
+  <br>
+  <br>
+  {% bootstrap_form profile_form layout="inline" %}
+
+  {% buttons %}
+  <button type="submit" value="Register" class="btn btn-primary">Register</button>
+  {% endbuttons%}
+
+</form>
+{% endblock %}

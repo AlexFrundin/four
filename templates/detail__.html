@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Info of {{human}}
+{% endblock %}
+
+{% block content %}
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6 col-md-6 col-6">
+        <p class="text-center">
+        Имя пользователя - {{human.name}}
+        </p>
+        <p class="text-center">
+        Фамилия пользователя - {{human.second_name}}
+        </p>
+        <p class="text-center">
+        Возраст пользователя - {{human.age}}
+        </p>
+        <p class="text-center">
+          Информация о пользователе - {{human.info}}
+        </p>
+
+      </div>
+    </div>
+  </div>
+{% endblock %}

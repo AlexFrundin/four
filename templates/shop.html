@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% block title %}
+My-shop
+{% endblock %}
+
+{% block content %}
+
+<p>anonymous - {{request.user.is_anonymous}}</p>
+<p>active - {{request.user.is_active}}</p>
+<p>authenticate - {{request.user.is_authenticated}}</p>
+
+  {% for catalog, value in sub.items %}
+    <div>
+      <h1>{{catalog}}</h1>
+      <ul>
+        {% for subcatlog in value %}
+          <li>{{subcatlog}}</li>
+        {% endfor %}
+      </ul>
+    </div>
+  {% endfor %}
+
+<a href="{% url 'drf_form' %}">Новая Форма</a>
+<br>
+<a href="{% url 'book_gt'%}"> Книги</a>
+<br>
+<a href="{% url 'unique_city'%}">unique_city</a>
+<br>
+<a href="{% url 'duplicate' %}">Duplicate</a>
+<br>
+<a href="{% url 'new_city' %}">NewCity</a>
+<br>
+<a href="{% url 'ajax_js'%}">Ajax Form</a>
+<br>
+<a href="{% url 'add_js'%}">Новая Форма Городов</a>
+<br>
+<a href="{% url 'load_country' %}">Загрузка стран</a>
+<br>
+<a href="{% url 'load_city' %}">Загрузка городов</a>
+<br>
+<a href="{% url 'get_st'%}">Перейти на стандартную форму</a>
+<br>
+<a href="{% url 'f_model' %}">Перейти на форму-модель</a>
+<br>
+{% if request.user.is_authenticated%}
+<a href="{% url 'profile' id=request.user.id %}">Профиль</a>
+<br>
+{% endif %}
+{% if request.user.is_anonymous%}
+<a href="{% url 'login' %}">Логин</a>
+<br>
+{% endif %}
+{% if request.user.is_authenticated%}
+<a href="{% url 'logout'%}">Выйти</a>
+<br>
+{%endif%}
+{% if request.user.is_anonymous%}
+<a href="{% url 'register'%}">Регистрация</a>
+{% endif %}
+{% endblock  %}

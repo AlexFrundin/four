@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+
+{% block title %}
+Succes
+{% endblock %}
+
+{% block content %}
+<ol>
+{% for item in info %}
+<li>{{item}}</li>
+{%endfor%}
+</ol>
+
+{% if bad_info %}
+<p> Не загрузились</p>
+  {% for c,t in bad_info.items %}
+    <p>{{c}}-{{t}}</p>
+  {%endfor%}.
+{% endif %}
+
+{{length}}
+
+
+  <ul class="pagination">
+    {% if info.has_previous %}
+      <li><a href="?page={{ info.previous_page_number }}">&laquo;Предыдущий</a>
+      </li>
+    {% else %}
+      <li class="disabled"><span>&laquo;Предыдущий</span></li>
+    {% endif %}
+<li class="active">
+  <span>&nbsp;{{ info.number }}&nbsp;<span class="sr-only">Текущая</span></span>
+</li>
+    {% if info.has_next %}
+      <li><a href="?page={{ info.next_page_number }}">Следующая&raquo;</a></li>
+    {% else %}
+      <li class="disabled"><span>Следующая&raquo;</span></li>
+    {% endif %}
+  </ul>
+
+<div>
+  <ul class="pagination">
+    {% for i in info.paginator.page_range %}
+      {% if info.number == i %}
+        <li class="active"><span>&nbsp;{{ i }}&nbsp;<span class="sr-only">Текущая</span></span></li>
+      {% else %}
+        <li><a href="?page={{ i }}">&nbsp{{ i }}&nbsp</a></li>
+      {% endif %}
+    {% endfor %}
+  </ul>
+</div>
+{%endblock%}
+
+{%block page%}
+{% include 'include/page.html' with page_obj=info %}
+{%endblock%}
